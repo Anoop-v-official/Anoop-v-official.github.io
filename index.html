@@ -63,7 +63,7 @@ nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.5)}
 
 .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(6,214,242,.05);border:1px solid rgba(6,214,242,.15);border-radius:100px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:1px;margin-bottom:32px;width:fit-content;opacity:0;animation:hfade .6s .2s ease forwards}
 .hero-tag .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:bpulse 2s infinite}
-.hero-name{font-family:'Dela Gothic One',sans-serif;font-size:clamp(60px,10vw,130px);line-height:.9;letter-spacing:-3px;color:var(--white);margin-bottom:8px;opacity:0;animation:hfade .7s .35s ease forwards}
+.hero-name{font-family:'Dela Gothic One',sans-serif;font-size:clamp(60px,10vw,130px);line-height:1.05;letter-spacing:-3px;color:var(--white);margin-bottom:8px;opacity:0;animation:hfade .7s .35s ease forwards}
 .hero-name .grad{background:linear-gradient(135deg,var(--cyan) 0%,var(--green) 50%,var(--violet) 100%);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradShift 6s ease infinite}
 @keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .hero-sub{font-family:'JetBrains Mono',monospace;font-size:clamp(12px,1.4vw,15px);color:var(--dim);letter-spacing:5px;text-transform:uppercase;margin-top:12px;margin-bottom:32px;opacity:0;animation:hfade .7s .5s ease forwards}
@@ -150,7 +150,7 @@ section{position:relative;z-index:2;padding:120px 60px;max-width:1200px;margin:0
 .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .sk-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px 28px;transition:all .4s cubic-bezier(.175,.885,.32,1.275);overflow:hidden}
 .sk-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--green));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
-.sk-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(6,214,242,.06) 0%,transparent 60%);opacity:0;transition:opacity .3s}
+.sk-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(6,214,242,.06) 0%,transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
 .sk-card:hover{border-color:rgba(6,214,242,.2);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.3),0 0 40px rgba(6,214,242,.04)}
 .sk-card:hover::before{transform:scaleX(1)}
 .sk-card:hover::after{opacity:1}
@@ -179,7 +179,7 @@ section{position:relative;z-index:2;padding:120px 60px;max-width:1200px;margin:0
 .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .proj-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:36px 32px;transition:all .35s;overflow:hidden;cursor:none}
 .proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--green),var(--violet));transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,1,.36,1)}
-.proj-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(6,214,242,.05) 0%,transparent 50%);opacity:0;transition:opacity .3s}
+.proj-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(6,214,242,.05) 0%,transparent 50%);opacity:0;transition:opacity .3s;pointer-events:none}
 .proj-card:hover{border-color:rgba(6,214,242,.15);box-shadow:0 24px 80px rgba(0,0,0,.4),0 0 50px rgba(6,214,242,.04)}
 .proj-card:hover::before{transform:scaleX(1)}
 .proj-card:hover::after{opacity:1}
@@ -193,7 +193,7 @@ section{position:relative;z-index:2;padding:120px 60px;max-width:1200px;margin:0
 .proj-featured{grid-column:1/-1;background:linear-gradient(135deg,rgba(6,214,242,.03),rgba(0,245,160,.03));border-color:var(--border-hi)}
 .proj-featured:hover{border-color:rgba(6,214,242,.3)}
 .live-badge{display:inline-block;margin-left:10px;color:var(--green);font-size:10px;letter-spacing:1px;animation:bpulse 2s infinite}
-.proj-live-link{display:inline-block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);text-decoration:none;letter-spacing:1px;padding:8px 18px;border:1px solid rgba(6,214,242,.2);border-radius:6px;transition:all .3s;cursor:none}
+.proj-live-link{display:inline-block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);text-decoration:none;letter-spacing:1px;padding:8px 18px;border:1px solid rgba(6,214,242,.2);border-radius:6px;transition:all .3s;cursor:none;position:relative;z-index:5}
 .proj-live-link:hover{background:rgba(6,214,242,.08);border-color:var(--cyan);box-shadow:0 0 20px rgba(6,214,242,.1);transform:translateY(-1px)}
 
 /* ═══ CERTS ═══ */
@@ -432,7 +432,7 @@ footer b{color:var(--green);font-weight:400}
   <div class="c-title reveal">Let's Build Something <span class="grad">Reliable</span></div>
   <p class="c-sub reveal">// OPEN TO DEVOPS · SRE · PLATFORM · CLOUD ENGINEERING ROLES</p>
   <div class="c-links">
-    <a href="mailto:Anoopvtvm14@gmail.com" class="c-link reveal reveal-d1"><em class="ico">✉</em> Anoopvtvm14@gmail.com</a>
+    <a href="/cdn-cgi/l/email-protection#3879565757484e4c4e55090c785f55595154165b5755" class="c-link reveal reveal-d1"><em class="ico">✉</em> <span class="__cf_email__" data-cfemail="4809262727383e3c3e25797c082f25292124662b2725">[email&#160;protected]</span></a>
     <a href="https://www.linkedin.com/in/anoop-devops" target="_blank" class="c-link reveal reveal-d2"><em class="ico">in</em> linkedin/anoop-devops</a>
     <a href="https://github.com/Anoop-v-official" target="_blank" class="c-link reveal reveal-d3"><em class="ico">⌥</em> github/Anoop-v-official</a>
     <a href="https://medium.com/@an00p.v" target="_blank" class="c-link reveal reveal-d4"><em class="ico">✍</em> medium/@an00p.v</a>
@@ -442,7 +442,7 @@ footer b{color:var(--green);font-weight:400}
 
 <footer><p>Engineered with care · <b>Anoop V</b> · Trivandrum, Kerala · 2025</p></footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ═══════════════════════════════════════
    INTERACTIVE TERMINAL ENGINE
    ═══════════════════════════════════════ */
@@ -771,10 +771,4 @@ window.addEventListener('scroll',()=>{
   navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+current)});
 },{passive:true});
 
-/* ═══ SMOOTH SCROLL ═══ */
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-  e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
-}));
-</script>
-</body>
-</html>
+/* ═══ SM
