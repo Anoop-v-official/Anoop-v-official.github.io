@@ -214,6 +214,8 @@ section{position:relative;z-index:2;padding:120px 60px;max-width:1200px;margin:0
 .c-link{display:flex;align-items:center;gap:10px;padding:14px 22px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--dim);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.5px;transition:all .3s;cursor:none}
 .c-link:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 4px 20px rgba(6,214,242,.08);transform:translateY(-3px)}
 .c-link .ico{font-style:normal;font-size:14px}
+/* WhatsApp hover color */
+.c-link.wa-link:hover{border-color:#25d366;color:#25d366;box-shadow:0 4px 20px rgba(37,211,102,.12)}
 
 footer{border-top:1px solid var(--border);padding:28px 40px;text-align:center;position:relative;z-index:2}
 footer p{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:1.5px}
@@ -281,7 +283,7 @@ footer b{color:var(--green);font-weight:400}
       <div class="tl"><span class="to"><span class="hl-yellow" style="color:var(--yellow)">Type 'help' for available commands</span></span></div>
       <div class="term-input-line">
         <span class="tp">$</span>
-        <input type="text" id="termInput" placeholder="try: help, linkedin, snapsend, neofetch..." autocomplete="off" spellcheck="false"/>
+        <input type="text" id="termInput" placeholder="try: help, linkedin, whatsapp, snapsend, neofetch..." autocomplete="off" spellcheck="false"/>
       </div>
     </div>
   </div>
@@ -433,10 +435,11 @@ footer b{color:var(--green);font-weight:400}
   <p class="c-sub reveal">// OPEN TO DEVOPS · SRE · PLATFORM · CLOUD ENGINEERING ROLES</p>
   <div class="c-links">
     <a href="mailto:Anoopvtvm14@gmail.com" class="c-link reveal reveal-d1"><em class="ico">✉</em> Anoopvtvm14@gmail.com</a>
-    <a href="https://www.linkedin.com/in/anoop-devops" target="_blank" class="c-link reveal reveal-d2"><em class="ico">in</em> linkedin/anoop-devops</a>
-    <a href="https://github.com/Anoop-v-official" target="_blank" class="c-link reveal reveal-d3"><em class="ico">⌥</em> github/Anoop-v-official</a>
-    <a href="https://medium.com/@an00p.v" target="_blank" class="c-link reveal reveal-d4"><em class="ico">✍</em> medium/@an00p.v</a>
-    <a href="tel:+917907181599" class="c-link reveal reveal-d5"><em class="ico">☎</em> +91 790 718 1599</a>
+    <a href="https://wa.me/917907181599" target="_blank" class="c-link wa-link reveal reveal-d2"><em class="ico">💬</em> WhatsApp</a>
+    <a href="https://www.linkedin.com/in/anoop-devops" target="_blank" class="c-link reveal reveal-d3"><em class="ico">in</em> linkedin/anoop-devops</a>
+    <a href="https://github.com/Anoop-v-official" target="_blank" class="c-link reveal reveal-d4"><em class="ico">⌥</em> github/Anoop-v-official</a>
+    <a href="https://medium.com/@an00p.v" target="_blank" class="c-link reveal reveal-d5"><em class="ico">✍</em> medium/@an00p.v</a>
+    <a href="tel:+917907181599" class="c-link reveal reveal-d6"><em class="ico">☎</em> +91 790 718 1599</a>
   </div>
 </section>
 
@@ -462,6 +465,8 @@ footer b{color:var(--green);font-weight:400}
     mail:'mailto:Anoopvtvm14@gmail.com',
     phone:'tel:+917907181599',
     call:'tel:+917907181599',
+    whatsapp:'https://wa.me/917907181599',
+    wa:'https://wa.me/917907181599',
   };
 
   const SECTIONS={
@@ -506,6 +511,9 @@ footer b{color:var(--green);font-weight:400}
       } else if(cmd==='phone'||cmd==='call'){
         addOutput(`<span class="hl-green">→ Dialing</span> <span class="hl-cyan">+91 790 718 1599</span>`);
         window.open(LINKS[cmd],'_blank');
+      } else if(cmd==='whatsapp'||cmd==='wa'){
+        addOutput(`<span class="hl-green">→ Opening WhatsApp chat with</span> <span class="hl-cyan">+91 790 718 1599</span> <span class="hl-green">💬</span>`);
+        window.open(LINKS[cmd],'_blank');
       } else {
         addOutput(`<span class="hl-green">→ Opening ${cmd} in new tab...</span>`);
         window.open(LINKS[cmd],'_blank');
@@ -530,6 +538,7 @@ footer b{color:var(--green);font-weight:400}
 <span class="hl-cyan">  medium</span>      <span class="hl-dim">→ Open Medium blog</span>
 <span class="hl-cyan">  snapsend</span>    <span class="hl-dim">→ Open SnapSend (my app!)</span>
 <span class="hl-cyan">  email</span>       <span class="hl-dim">→ Send me an email</span>
+<span class="hl-cyan">  whatsapp</span>    <span class="hl-dim">→ Chat on WhatsApp</span>
 <span class="hl-cyan">  phone</span>       <span class="hl-dim">→ Call me</span>
 
 <span class="hl-violet">  skills</span>      <span class="hl-dim">→ Jump to skills section</span>
@@ -601,7 +610,7 @@ footer b{color:var(--green);font-weight:400}
 
     // ─── RESUME ───
     if(cmd==='resume'||cmd==='cv'||cmd==='download'){
-      addOutput(`<span class="hl-yellow">⚠ Resume download not configured yet.</span>\n<span class="hl-dim">  Reach out via</span> <span class="hl-cyan">email</span> <span class="hl-dim">or</span> <span class="hl-cyan">linkedin</span> <span class="hl-dim">to request it!</span>`);
+      addOutput(`<span class="hl-yellow">⚠ Resume download not configured yet.</span>\n<span class="hl-dim">  Reach out via</span> <span class="hl-cyan">email</span><span class="hl-dim">,</span> <span class="hl-cyan">whatsapp</span> <span class="hl-dim">or</span> <span class="hl-cyan">linkedin</span> <span class="hl-dim">to request it!</span>`);
       return;
     }
 
@@ -654,7 +663,7 @@ footer b{color:var(--green);font-weight:400}
       return;
     }
     if(cmd==='hire'||cmd==='hire me'){
-      addOutput(`<span class="hl-green">Great taste! 🎯</span>\n<span class="hl-dim">Let's talk →</span> <span class="hl-cyan">linkedin</span> <span class="hl-dim">or</span> <span class="hl-cyan">email</span>`);
+      addOutput(`<span class="hl-green">Great taste! 🎯</span>\n<span class="hl-dim">Let's talk →</span> <span class="hl-cyan">linkedin</span><span class="hl-dim">,</span> <span class="hl-cyan">whatsapp</span> <span class="hl-dim">or</span> <span class="hl-cyan">email</span>`);
       return;
     }
 
